@@ -1,9 +1,7 @@
-import { useState } from "react";
-import "./App.css";
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
-const App = () => (
+const Root = () => (
   <KindeProvider
     clientId="51eb58ed911241848e7a2c34ed8d6dc6"
     domain="https://mwise707.kinde.com"
@@ -20,4 +18,4 @@ const App = () => (
   </KindeProvider>
 );
 
-export default App;
+export default Root;

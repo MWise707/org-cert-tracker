@@ -18,22 +18,22 @@ CREATE TABLE orgs (
 CREATE TABLE branches (
   branch_id serial PRIMARY KEY,
   branch_name varchar,
-  org_id int REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE
+  org_id integer REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE sections (
   section_id serial PRIMARY KEY,
   section_name varchar,
-  org_id int REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  branch_id int REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE
+  org_id integer REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  branch_id integer REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE teams (
   team_id serial PRIMARY KEY,
   team_name varchar,
-  org_id int REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  branch_id int REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  section_id int REFERENCES sections (section_id) ON UPDATE CASCADE ON DELETE CASCADE
+  org_id integer REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  branch_id integer REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  section_id integer REFERENCES sections (section_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE individuals (
@@ -41,10 +41,10 @@ CREATE TABLE individuals (
   ind_name varchar,
   ind_position varchar,
   ind_title varchar,
-  org_id int REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  branch_id int REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  section_id int REFERENCES sections (section_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  team_id int REFERENCES teams (team_id) ON UPDATE CASCADE ON DELETE CASCADE
+  org_id integer REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  branch_id integer REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  section_id integer REFERENCES sections (section_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  team_id integer REFERENCES teams (team_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE certifications (
@@ -59,16 +59,16 @@ CREATE TABLE cert_tasks (
 
 CREATE TABLE ind_cert_status (
   ind_cert_status_id serial PRIMARY KEY,
-  ind_id int REFERENCES individuals (ind_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  cert_id int REFERENCES certifications (cert_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  ind_id integer REFERENCES individuals (ind_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  cert_id integer REFERENCES certifications (cert_id) ON UPDATE CASCADE ON DELETE CASCADE,
   is_cert_complete boolean,
   percent_cert_complete numeric(3, 2)
 );
 
 CREATE TABLE ind_task_status (
   ind_task_status_id serial PRIMARY KEY,
-  cert_task_id int REFERENCES cert_tasks (cert_task_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  ind_id int REFERENCES individuals (ind_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  cert_task_id integer REFERENCES cert_tasks (cert_task_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  ind_id integer REFERENCES individuals (ind_id) ON UPDATE CASCADE ON DELETE CASCADE,
   is_task_passed boolean,
   date_last_tested date,
   ind_task_feedback text
