@@ -1,14 +1,15 @@
-import "./header.css"
+import "./header.css";
+import Navbar from "./Navbar.jsx";
 
-
-const Header = () => {
+const Header = ({ isLoading, isAuthenticated }) => {
   return (
     <>
       <div className="header-container">
-        <div className="header-text">CertiTrax</div>
+        {isAuthenticated && <Navbar />}
+        {!isAuthenticated && <div className="header-text">CertiTrax</div>}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Header;

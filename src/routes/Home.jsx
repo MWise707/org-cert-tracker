@@ -8,7 +8,7 @@ const Home = () => {
     useKindeAuth();
   return (
     <>
-      <Header />
+      <Header isLoading={isLoading} isAuthenticated={isAuthenticated}/>
       {isLoading && <div>Loading...</div>}
       {!isAuthenticated && (
         <div className="home-container">
