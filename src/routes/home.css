@@ -1,6 +1,17 @@
-.login-buttons {
+.login-button-container {
   margin: 1em;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 5px;
+}
+
+.logout-button-container {
+  margin: 1em;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 5px;
 }
