@@ -44,7 +44,8 @@ CREATE TABLE individuals (
   org_id integer REFERENCES orgs (org_id) ON UPDATE CASCADE ON DELETE CASCADE,
   branch_id integer REFERENCES branches (branch_id) ON UPDATE CASCADE ON DELETE CASCADE,
   section_id integer REFERENCES sections (section_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  team_id integer REFERENCES teams (team_id) ON UPDATE CASCADE ON DELETE CASCADE
+  team_id integer REFERENCES teams (team_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  ind_auth_level integer DEFAULT 0 NOT NULL CHECK (ind_auth_level >= 0 AND ind_auth_level <= 5)
 );
 
 CREATE TABLE certifications (
