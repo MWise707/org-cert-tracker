@@ -63,7 +63,7 @@ CREATE TABLE ind_cert_status (
   ind_id integer REFERENCES individuals (ind_id) ON UPDATE CASCADE ON DELETE CASCADE,
   cert_id integer REFERENCES certifications (cert_id) ON UPDATE CASCADE ON DELETE CASCADE,
   is_cert_complete boolean,
-  percent_cert_complete numeric(3, 2)
+  percent_cert_complete numeric(3, 0)
 );
 
 CREATE TABLE ind_task_status (
