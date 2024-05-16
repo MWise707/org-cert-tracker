@@ -19,7 +19,6 @@
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-
 .position-container {
   display: flex;
   flex-direction: row;
@@ -30,6 +29,14 @@
   padding: 1em;
 }
 
+.name-stat-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1em;
+}
 
 .name-container {
   display: flex;
@@ -39,4 +46,12 @@
   margin: 0 auto;
   padding: 1em;
   align-self: flex-start;
+}
+
+.cert-status-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 1em;
+  align-self: flex-end;
 }
